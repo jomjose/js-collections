@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <script type='text/javascript' src='utilities.js'></script>
+        <script type='text/javascript' src='vertical_highlight.js'></script>
+        <style>
+            table {
+                border-spacing:0;
+                border-collapse:collapse;
+                display:inline-block;
+                vertical-align:top;
+            }
+
+            .one td, .two td {
+                width:50px;
+                height:50px;
+                text-align:center;
+                background:#eef;
+            }
+
+            .two tr {
+                border:3px solid rgba(0,0,0,0);
+            }
+
+            /* Row Highlighting (regular CSS) */
+
+            .one tr:hover td {
+                background:#008;
+                color:#ff0;
+                font-size:20pt;
+            }
+
+            .two tr:hover {
+                border:3px double #000;
+            }
+
+            /* Cell Highlighting (regular CSS) */
+
+            .one tr td:hover {
+                background:#f0f;
+                cursor:pointer;
+                font-family:helvetica;
+            }
+
+            .two tr td:hover {
+                background:#0c0;
+                cursor:pointer;
+                font-family:helvetica;
+                font-size:200%;
+            }
+
+            /* Column Highlighting */
+
+            table.one vertical_highlight {
+                background:#800;
+                color:#ff0;
+                font-size:20pt;
+            }
+
+            table.two vertical_highlight {
+                background:#080;
+                color:#ff0;
+            }
+        </style>
+    </head>
+    <body>
+        <script type='text/javascript'>
+            function cool_table(type) {
+                var table = $_({
+                    tag: 'table',
+                    parent: document.getElementsByTagName('body')[0],
+                    class:'vertical_highlight '+type
+                });
+                for(var i=0; i<10; i++) {
+                    var tr = $_({
+                        tag: 'tr',
+                        parent: table
+                    });
+                    for(var j=0; j<10; j++)
+                        $_({
+                            tag: 'td',
+                            parent: tr,
+                            html: i*j
+                        });
+                }
+            }
+            cool_table('one');
+            cool_table('two');
+        </script>
+    </body>
+</html>
