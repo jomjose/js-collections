@@ -8,9 +8,9 @@ var users = new OwlJax('http://www.domain.com/users.php');
 
 users.request({
         action      : 'add',
-        name        : 'Val Tenyotkin',
-        email       : 'val@tenyotk.in',
-        occupation  : 'Code smith'
+        name        : 'Jom Jose',
+        email       : 'hello@jomjose.com',
+        occupation  : 'Front End Developer'
     },
     // what to do on a successful request
     {
